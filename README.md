@@ -21,7 +21,7 @@
 
 ## What is FET?
 
-can build queries with factory functions, you can make your repository functions more generic, and makes checking query variables easier with the built-in checker system.
+you can build queries with factory functions. It can make your repository functions more generic, and makes checking query variables easier with the built-in checker system.
 
 ## Installation
 
