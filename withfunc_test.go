@@ -23,6 +23,7 @@ func Test_WithFuncEq(t *testing.T) {
 	fet.WithValueEq("key6", 24, fet.IfNotNil).Update(m)
 	fet.WithValueEq("key7", "", fet.IfNotNil).Update(m)
 	fet.WithValueEq("key8", now, fet.IfNotNil).Update(m)
+	fet.WithValueIs("key9", "test").Update(m)
 
 	qt.Equal(m, fet.M{
 		"key": fet.M{
@@ -37,5 +38,6 @@ func Test_WithFuncEq(t *testing.T) {
 		"key8": fet.M{
 			"$eq": now,
 		},
+		"key9": "test",
 	})
 }

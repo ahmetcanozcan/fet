@@ -4,6 +4,10 @@ type field struct {
 	key string
 }
 
+func (f *field) Is(value interface{}, checkers ...Checker) Updater {
+	return WithValueIs(f.key, value, checkers...)
+}
+
 func (f *field) Eq(value interface{}, checkers ...Checker) Updater {
 	return WithValueEq(f.key, value, checkers...)
 }

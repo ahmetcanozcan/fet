@@ -34,7 +34,7 @@ func main() {
 		fet.Field("userName").Eq("test"),
 	)
 
-	err = collection.FindOne(context.TODO(), filter).Decode(&result)
+	err = collection.FindOne(ctx, filter).Decode(&result)
 	checkErr(err)
 	fmt.Println(result)
 

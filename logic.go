@@ -13,15 +13,15 @@ func logicalOperatioWithKeyword(keyword string, updaters ...Updater) Updater {
 	})
 }
 
-func getLocigalOperationWithKeywordConstructor(keyword string) func(updaters ...Updater) Updater {
+func getLogicalOperationWithKeywordConstructor(keyword string) func(updaters ...Updater) Updater {
 	return func(updaters ...Updater) Updater {
 		return logicalOperatioWithKeyword(keyword, updaters...)
 	}
 }
 
 var (
-	Or   = getLocigalOperationWithKeywordConstructor(KeywordOr)
-	And  = getLocigalOperationWithKeywordConstructor(KeywordAnd)
-	Nor  = getLocigalOperationWithKeywordConstructor(KeywordNor)
-	Nand = getLocigalOperationWithKeywordConstructor(KeywordNand)
+	Or   = getLogicalOperationWithKeywordConstructor(KeywordOr)
+	And  = getLogicalOperationWithKeywordConstructor(KeywordAnd)
+	Nor  = getLogicalOperationWithKeywordConstructor(KeywordNor)
+	Nand = getLogicalOperationWithKeywordConstructor(KeywordNand)
 )

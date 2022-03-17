@@ -8,6 +8,8 @@ func (w WithFunc) Update(filter M) {
 }
 
 var (
+	WithValueIs = withValueIs
+
 	WithValueNotEq = getKeywordWithFuncConstructor(KeywordNe)
 	WithValueEq    = getKeywordWithFuncConstructor(KeywordEq)
 
@@ -26,6 +28,14 @@ var (
 
 	WithValueExists = getKeywordWithFuncConstructor(KeywordExists)
 )
+
+func withValueIs(key string, value interface{}, checkers ...Checker) Updater {
+	return WithFunc(func(filter M) {
+		if checkFilter(key, value, checkers...) {
+			filter[key] = value
+		}
+	})
+}
 
 func getKeywordWithFuncConstructor(keyword string, checkers ...Checker) withFuncConstructor {
 	return func(key string, value interface{}, checkers ...Checker) Updater {

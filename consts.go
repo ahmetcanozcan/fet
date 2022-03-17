@@ -55,8 +55,9 @@ const (
 	KeywordProjection string = "$projection"
 
 	// Update
-	KeywordUnset string = "$unset"
-	KeywordSet   string = "$set"
+	KeywordUnset       string = "$unset"
+	KeywordSet         string = "$set"
+	KeywordSetOnInsert string = "$setOnInsert"
 
 	// Array
 	KeywordArrayFilters string = "$arrayFilters"

@@ -14,3 +14,7 @@ func Apply(filter M, updaters ...Updater) M {
 func Build(updaters ...Updater) M {
 	return Apply(M{}, updaters...)
 }
+
+func BuildSet(updaters ...Updater) M {
+	return Build(Set(updaters...))
+}
