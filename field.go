@@ -32,6 +32,22 @@ func (f *field) ElemMatch(value interface{}, checkers ...Checker) Updater {
 	return WithValueElemMatch(f.key, value, checkers...)
 }
 
+func (f *field) Gt(value interface{}, checkers ...Checker) Updater {
+	return WithValueGt(f.key, value, checkers...)
+}
+
+func (f *field) Gte(value interface{}, checkers ...Checker) Updater {
+	return WithValueGte(f.key, value, checkers...)
+}
+
+func (f *field) Lt(value interface{}, checkers ...Checker) Updater {
+	return WithValueLt(f.key, value, checkers...)
+}
+
+func (f *field) Lte(value interface{}, checkers ...Checker) Updater {
+	return WithValueLte(f.key, value, checkers...)
+}
+
 func Field(key string) *field {
 	return &field{key: key}
 }
