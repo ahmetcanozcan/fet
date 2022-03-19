@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestBuild(t *testing.T) {
+func Test_Build(t *testing.T) {
 
 	qt := assert.New(t)
 
@@ -43,7 +43,7 @@ func TestBuild(t *testing.T) {
 
 }
 
-func TestBuildSet(t *testing.T) {
+func Test_BuildSet(t *testing.T) {
 
 	qt := assert.New(t)
 

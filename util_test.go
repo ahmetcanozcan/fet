@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestGroup(t *testing.T) {
+func Test_Group(t *testing.T) {
 
 	qt := assert.New(t)
 

@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func Test_WithFuncEq(t *testing.T) {
+func Test_withFunc(t *testing.T) {
 
 	qt := assert.New(t)
 

@@ -15,7 +15,7 @@ type User struct {
 	ZeroTime  time.Time
 }
 
-func TestStruct_Pick(t *testing.T) {
+func Test_Struct_Pick(t *testing.T) {
 
 	qt := assert.New(t)
 
@@ -73,7 +73,7 @@ func TestStruct_Pick(t *testing.T) {
 	}
 }
 
-func TestStruct(t *testing.T) {
+func Test_Struct(t *testing.T) {
 	qt := assert.New(t)
 
 	cases := []struct {
