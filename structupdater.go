@@ -28,7 +28,7 @@ func (s *StructUpdater) Pick(name string, checkers ...Checker) *StructUpdater {
 	f, ok := s.t.FieldByName(name)
 
 	if !ok {
-		panic(ErrInvalidField)
+		return s
 	}
 
 	val := vf.Interface()
