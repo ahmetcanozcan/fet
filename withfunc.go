@@ -8,25 +8,23 @@ func (w WithFunc) Update(filter M) {
 }
 
 var (
-	WithValueIs = withValueIs
+	withValueNotEq = getKeywordWithFuncConstructor(KeywordNe)
+	withValueEq    = getKeywordWithFuncConstructor(KeywordEq)
 
-	WithValueNotEq = getKeywordWithFuncConstructor(KeywordNe)
-	WithValueEq    = getKeywordWithFuncConstructor(KeywordEq)
+	withValueIn           = getKeywordWithFuncConstructor(KeywordIn)
+	withValueNotIn        = getKeywordWithFuncConstructor(KeywordNin)
+	withValueElemMatch    = getKeywordWithFuncConstructor(KeywordElemMatch)
+	withValueAll          = getKeywordWithFuncConstructor(KeywordAll)
+	withValueAllElemMatch = getKeywordWithFuncConstructor(KeywordAllElemMatch)
 
-	WithValueIn           = getKeywordWithFuncConstructor(KeywordIn)
-	WithValueNotIn        = getKeywordWithFuncConstructor(KeywordNin)
-	WithValueElemMatch    = getKeywordWithFuncConstructor(KeywordElemMatch)
-	WithValueAll          = getKeywordWithFuncConstructor(KeywordAll)
-	WithValueAllElemMatch = getKeywordWithFuncConstructor(KeywordAllElemMatch)
+	withValueSize = getKeywordWithFuncConstructor(KeywordSize)
 
-	WithValueSize = getKeywordWithFuncConstructor(KeywordSize)
+	withValueGt  = getKeywordWithFuncConstructor(KeywordGt)
+	withValueGte = getKeywordWithFuncConstructor(KeywordGte)
+	withValueLt  = getKeywordWithFuncConstructor(KeywordLt)
+	withValueLte = getKeywordWithFuncConstructor(KeywordLte)
 
-	WithValueGt  = getKeywordWithFuncConstructor(KeywordGt)
-	WithValueGte = getKeywordWithFuncConstructor(KeywordGte)
-	WithValueLt  = getKeywordWithFuncConstructor(KeywordLt)
-	WithValueLte = getKeywordWithFuncConstructor(KeywordLte)
-
-	WithValueExists = getKeywordWithFuncConstructor(KeywordExists)
+	withValueExists = getKeywordWithFuncConstructor(KeywordExists)
 )
 
 func withValueIs(key string, value interface{}, checkers ...Checker) Updater {

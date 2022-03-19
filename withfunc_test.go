@@ -1,10 +1,9 @@
-package fet_test
+package fet
 
 import (
 	"testing"
 	"time"
 
-	"github.com/ahmetcanozcan/fet"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -12,30 +11,30 @@ func Test_WithFuncEq(t *testing.T) {
 
 	qt := assert.New(t)
 
-	m := fet.M{}
+	m := M{}
 	now := time.Now()
 
-	fet.WithValueEq("key", "value").Update(m)
-	fet.WithValueEq("key2", "", fet.IfNotEmpty).Update(m)
-	fet.WithValueEq("key3", 0, fet.IfNotZero).Update(m)
-	fet.WithValueEq("key4", time.Time{}, fet.IfNotZeroTime).Update(m)
-	fet.WithValueEq("key5", nil, fet.IfNotNil).Update(m)
-	fet.WithValueEq("key6", 24, fet.IfNotNil).Update(m)
-	fet.WithValueEq("key7", "", fet.IfNotNil).Update(m)
-	fet.WithValueEq("key8", now, fet.IfNotNil).Update(m)
-	fet.WithValueIs("key9", "test").Update(m)
+	withValueEq("key", "value").Update(m)
+	withValueEq("key2", "", IfNotEmpty).Update(m)
+	withValueEq("key3", 0, IfNotZero).Update(m)
+	withValueEq("key4", time.Time{}, IfNotZeroTime).Update(m)
+	withValueEq("key5", nil, IfNotNil).Update(m)
+	withValueEq("key6", 24, IfNotNil).Update(m)
+	withValueEq("key7", "", IfNotNil).Update(m)
+	withValueEq("key8", now, IfNotNil).Update(m)
+	withValueIs("key9", "test").Update(m)
 
-	qt.Equal(m, fet.M{
-		"key": fet.M{
+	qt.Equal(m, M{
+		"key": M{
 			"$eq": "value",
 		},
-		"key6": fet.M{
+		"key6": M{
 			"$eq": 24,
 		},
-		"key7": fet.M{
+		"key7": M{
 			"$eq": "",
 		},
-		"key8": fet.M{
+		"key8": M{
 			"$eq": now,
 		},
 		"key9": "test",

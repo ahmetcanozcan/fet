@@ -13,8 +13,8 @@ func Test_logicalOperatioWithKeyword(t *testing.T) {
 
 	const keyword = "keyword"
 
-	eqUpdater := WithValueEq("key", "value")
-	existsUpdater := WithValueEq("key", "value")
+	eqUpdater := withValueEq("key", "value")
+	existsUpdater := withValueEq("key", "value")
 
 	logicalOperatioWithKeyword(
 		keyword,
@@ -41,8 +41,8 @@ func Test_Or(t *testing.T) {
 
 	m := M{}
 
-	eqUpdater := WithValueEq("key", "value")
-	existsUpdater := WithValueEq("key", "value")
+	eqUpdater := withValueEq("key", "value")
+	existsUpdater := withValueEq("key", "value")
 
 	Or(
 		eqUpdater,
