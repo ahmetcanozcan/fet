@@ -15,7 +15,7 @@ type User struct {
 	ZeroTime  time.Time
 }
 
-func TestStruct(t *testing.T) {
+func TestStruct_Pick(t *testing.T) {
 
 	qt := assert.New(t)
 
@@ -65,4 +65,30 @@ func TestStruct(t *testing.T) {
 		c.updater.Update(m)
 		qt.Equal(c.expected, m)
 	}
+}
+
+func TestStruct(t *testing.T) {
+	qt := assert.New(t)
+
+	cases := []struct {
+		value     interface{}
+		errString string
+	}{
+		{User{}, ""},
+		{nil, ErrNilStruct.Error()},
+		{"", ErrNotStruct.Error()},
+		{1, ErrNotStruct.Error()},
+		{1.1, ErrNotStruct.Error()},
+	}
+
+	for _, c := range cases {
+		if c.errString == "" {
+			Struct(c.value)
+		} else {
+			qt.PanicsWithError(c.errString, func() {
+				Struct(c.value)
+			})
+		}
+	}
+
 }
