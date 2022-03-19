@@ -20,8 +20,12 @@ func getLogicalOperationWithKeywordConstructor(keyword string) func(updaters ...
 }
 
 var (
-	Or   = getLogicalOperationWithKeywordConstructor(KeywordOr)
-	And  = getLogicalOperationWithKeywordConstructor(KeywordAnd)
-	Nor  = getLogicalOperationWithKeywordConstructor(KeywordNor)
+	// Or is updater for $or query
+	Or = getLogicalOperationWithKeywordConstructor(KeywordOr)
+	// And is updater for $and query
+	And = getLogicalOperationWithKeywordConstructor(KeywordAnd)
+	// Nor is updater for $nor query
+	Nor = getLogicalOperationWithKeywordConstructor(KeywordNor)
+	// Nand is updater for $nand query
 	Nand = getLogicalOperationWithKeywordConstructor(KeywordNand)
 )

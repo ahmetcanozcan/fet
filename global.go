@@ -14,7 +14,10 @@ func getGlobalOperationWithKeywordConstructor(keyword string) func(updaters ...U
 }
 
 var (
-	Set         = getGlobalOperationWithKeywordConstructor(KeywordSet)
+	// Set is updater for $set query
+	Set = getGlobalOperationWithKeywordConstructor(KeywordSet)
+	// SetOnInsert is updater for $setOnInsert query
 	SetOnInsert = getGlobalOperationWithKeywordConstructor(KeywordSetOnInsert)
-	Unset       = getGlobalOperationWithKeywordConstructor(KeywordUnset)
+	// Unset is updater for $unset query
+	Unset = getGlobalOperationWithKeywordConstructor(KeywordUnset)
 )
