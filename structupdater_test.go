@@ -39,6 +39,12 @@ func TestStruct_Pick(t *testing.T) {
 			},
 		},
 		{
+			updater: Struct(u).Pick("Name").Pick("NotField"),
+			expected: M{
+				"name": "John",
+			},
+		},
+		{
 			updater: Struct(u).Pick("CreatedAt").Pick("ZeroTime", IfNotZeroTime),
 			expected: M{
 				"created_at": u.CreatedAt,
