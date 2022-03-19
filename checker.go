@@ -8,30 +8,30 @@ type Checker interface {
 	Check(key string, value interface{}) bool
 }
 
-type withCheckerFunc func(key string, value interface{}) bool
+type CheckerFunc func(key string, value interface{}) bool
 
-func (wcf withCheckerFunc) Check(key string, value interface{}) bool {
-	return wcf(key, value)
+func (cf CheckerFunc) Check(key string, value interface{}) bool {
+	return cf(key, value)
 }
 
 // IfNotNil checks if the given value is not nil.
-var IfNotNil Checker = withCheckerFunc(func(key string, value interface{}) bool {
+var IfNotNil Checker = CheckerFunc(func(key string, value interface{}) bool {
 	return value != nil
 })
 
 // IfNotZero checks if the given value is not zero.
-var IfNotZero Checker = withCheckerFunc(func(key string, value interface{}) bool {
+var IfNotZero Checker = CheckerFunc(func(key string, value interface{}) bool {
 	return value != 0
 })
 
 // IfNotEmpty checks if the given value is not a empty empty string.
-var IfNotEmpty Checker = withCheckerFunc(func(key string, value interface{}) bool {
+var IfNotEmpty Checker = CheckerFunc(func(key string, value interface{}) bool {
 	return value != ""
 })
 
 // IfNotZeroTime checks if the given value is not zero time.
 // if value type is not time.Time then it will return true.
-var IfNotZeroTime Checker = withCheckerFunc(func(key string, value interface{}) bool {
+var IfNotZeroTime Checker = CheckerFunc(func(key string, value interface{}) bool {
 	var (
 		t  time.Time
 		ok bool

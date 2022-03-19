@@ -40,3 +40,15 @@ func Test_IfNotZeroTime(t *testing.T) {
 	qt.True(fet.IfNotZeroTime.Check("key", time.Now()))
 
 }
+
+func Test_CheckerFunc(t *testing.T) {
+	qt := assert.New(t)
+
+	checker := fet.CheckerFunc(func(key string, value interface{}) bool {
+		return value != nil || key == "test"
+	})
+
+	qt.True(checker.Check("test", nil))
+	qt.True(checker.Check("test", ""))
+	qt.False(checker.Check("false", nil))
+}
