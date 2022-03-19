@@ -35,7 +35,7 @@ func Test_IfNotZero(t *testing.T) {
 func Test_IfNotZeroTime(t *testing.T) {
 	qt := assert.New(t)
 
-	qt.False(fet.IfNotZeroTime.Check("key", 0)) // false because 0 is not time.Time
+	qt.True(fet.IfNotZeroTime.Check("key", 0)) // true because 0 is not time.Time
 	qt.False(fet.IfNotZeroTime.Check("key", time.Time{}))
 	qt.True(fet.IfNotZeroTime.Check("key", time.Now()))
 

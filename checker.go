@@ -31,7 +31,7 @@ var IfNotZeroTime Checker = withCheckerFunc(func(key string, value interface{}) 
 	)
 
 	if t, ok = value.(time.Time); !ok {
-		return false
+		return true
 	}
 
 	return !t.IsZero()
