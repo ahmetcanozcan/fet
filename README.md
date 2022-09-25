@@ -1,11 +1,11 @@
 <h1 style="font-size:400%; letter-spacing: 12px" align="center">FET</h1>
 
 <div style="margin-top: -20px" align="center">
-  <strong>Build query dynamically</strong>
+  <strong>Build queries dynamically</strong>
 </div>
 
 <div align="center">
-  A <code> Go </code> library for building mongo queries with factory functions. 
+well-tested <code> Go </code> library that allows you to build queries in dynamic, and programmatic way. 
 </div>
 
 <br/>
@@ -21,7 +21,7 @@
 
 ## What is FET?
 
-you can build queries with factory functions. It can make your repository functions more generic, and makes checking query variables easier with the built-in checker system.
+Fet is a library that allows you to build queries in dynamic, and programmatic way. You can build mongo queries with function calls, instead of writing nested maps. And you have a unique, built-in logical control on your queries easily.
 
 ## Installation
 
@@ -31,29 +31,47 @@ go get github.com/ahmetcanozcan/fet
 
 ## Getting Started
 
-basic usage of the fet is building a query factory functions, and then this query can be used in mongo driver functions.
+Main functionality of FET is to build queries with function calls using `fet.Build`. This function takes a list of `fet.Updater` and apply this updaters into a new query that can be used on mongo driver functions.
 
 ```golang
 filter := fet.Build(
-  fet.Field("username").Eq("test"),
+  fet.Field("name").Eq("dave"),
 )
 
 err := collection.FindOne(ctx, filter)
+
+
 ```
 
-instead of using `Field`, you can use `with functions` directly.
+You can build set queries as well, using `fet.BuildSet`.
 
 ```golang
+
 filter := fet.Build(
-  fet.WithValueEq("userName", "test"),
+  fet.Field("name").Eq("dave"),
 )
 
-// is equivalent of:
-// filter := bson.M{
-//   "userName": "test",
-// }
+query := fet.BuildSet(
+  fet.Field("age").Is(18),
+)
 
-err := collection.FindOne(ctx, filter)
+_, err := collection.UpdateOne(ctx, filter, query)
+
+// is equivalent to
+
+filter := bson.M{
+  "name": bson.M{
+    "$eq": "dave",
+  },
+}
+
+query := bson.M{
+  "$set": bson.M{
+    "age": 18,
+  },
+}
+
+err := collection.FindOne(ctx, filter, query)
 
 ```
 
@@ -62,7 +80,7 @@ err := collection.FindOne(ctx, filter)
 ### Generic Repository Functions
 
 ```golang
-func (repo *repository) GetByFilters(ctx context.Context, filters ...[]fet.Updater) (*User, error) {
+func (repo *repository) GetByFilters(ctx context.Context, filters ...fet.Updater) (*User, error) {
   // ...
   filter := fet.Build(filters...)
   err := collection.FindOne(ctx, filter).Decode(&user)
