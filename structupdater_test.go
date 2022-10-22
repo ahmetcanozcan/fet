@@ -74,26 +74,56 @@ func Test_Struct_Pick(t *testing.T) {
 }
 
 func Test_Struct_Build(t *testing.T) {
-	qt := assert.New(t)
+	t.Run("build from struct value", func(t *testing.T) {
+		qt := assert.New(t)
 
-	s := struct {
-		Name  string `bson:"name"`
-		Age   int
-		Phone string
-	}{
-		Name:  "Dave Bowman",
-		Age:   18,
-		Phone: "",
-	}
+		type User struct {
+			Name  string `bson:"name"`
+			Age   int
+			Phone string
+		}
 
-	filter := Struct(s).
-		Pick("Name").
-		Pick("Phone", IfNotEmpty).
-		Build()
+		s := &User{
+			Name:  "Dave Bowman",
+			Age:   18,
+			Phone: "",
+		}
 
-	qt.Equal(s.Name, filter["name"])
-	qt.Nil(filter["Phone"])
-	qt.Nil(filter["Age"])
+		filter := Struct(s).
+			Pick("Name").
+			Pick("Phone", IfNotEmpty).
+			Build()
+
+		qt.Equal(s.Name, filter["name"])
+		qt.Nil(filter["Phone"])
+		qt.Nil(filter["Age"])
+	})
+
+	t.Run("build from struct pointer", func(t *testing.T) {
+		qt := assert.New(t)
+
+		type User struct {
+			Name  string `bson:"name"`
+			Age   int
+			Phone string
+		}
+
+		s := &User{
+			Name:  "Dave Bowman",
+			Age:   18,
+			Phone: "",
+		}
+
+		filter := Struct(s).
+			Pick("Name").
+			Pick("Phone", IfNotEmpty).
+			Build()
+
+		qt.Equal(s.Name, filter["name"])
+		qt.Nil(filter["Phone"])
+		qt.Nil(filter["Age"])
+
+	})
 
 }
 

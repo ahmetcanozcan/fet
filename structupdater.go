@@ -75,6 +75,11 @@ func Struct(s interface{}) *StructUpdater {
 	}
 
 	kind := v.Kind()
+
+	if kind == reflect.Ptr {
+		return Struct(v.Elem().Interface())
+	}
+
 	if kind != reflect.Ptr && kind != reflect.Struct {
 		panic(ErrNotStruct)
 	}
