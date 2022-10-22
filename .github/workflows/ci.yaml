@@ -12,11 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Send code coverage
-        uses: codecov/codecov-action@v3
-        with:
-          fail_ci_if_error: true
-
       - name: Set up Go
         uses: actions/setup-go@v2
         with:
@@ -27,3 +22,11 @@ jobs:
 
       - name: Test
         run: go test -v ./...
+
+      - name: Run coverage
+        run: go test -race -coverprofile=coverage.txt -covermode=atomic
+
+      - name: Send code coverage
+        uses: codecov/codecov-action@v3
+        with:
+          fail_ci_if_error: true
