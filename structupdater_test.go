@@ -105,6 +105,7 @@ func Test_Struct(t *testing.T) {
 		errString string
 	}{
 		{User{}, ""},
+		{&User{}, ""},
 		{nil, ErrNilStruct.Error()},
 		{"", ErrNotStruct.Error()},
 		{1, ErrNotStruct.Error()},
