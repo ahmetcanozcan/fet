@@ -9,16 +9,6 @@ well-tested <code>Go</code> library that allows you to build queries in dynamic,
 </div>
 <br/>
 
-<div align="center">
- 
-</div>
-<div align="center">
-  <strong>More control on functions</strong>
-</div>
-<div align="center">
-  A <code> JavaScript</code> and <code> TypeScript</code> library for measuring and scaling to functions.
-</div>
-
 <br>
 <div align="center">
 
