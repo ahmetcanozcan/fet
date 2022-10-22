@@ -1,3 +1,8 @@
+// Package fet  allows you to build queries in dynamic, and programmatic way.
+//
+// You can build mongo queries with function calls,
+// instead of writing nested maps. And you have a unique,
+// built-in logical control on your queries easily.
 package fet
 
 // Updater is an interface that defines how to update a filter.
