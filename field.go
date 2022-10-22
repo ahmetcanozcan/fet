@@ -4,6 +4,7 @@
 // Under the hood  UpdateBuilders uses with functions
 package fet
 
+// UpdaterBuilder builds an updater with function calls same named as the keyword
 type UpdaterBuilder interface {
 	Is(value interface{}, checkers ...Checker) Updater
 	Eq(value interface{}, checkers ...Checker) Updater
@@ -66,6 +67,7 @@ func (f *updaterBuilder) Lte(value interface{}, checkers ...Checker) Updater {
 	return withValueLte(f.key, value, checkers...)
 }
 
+// Field returns UpdaterBuilder for given field name
 func Field(key string) UpdaterBuilder {
 	return &updaterBuilder{key: key}
 }
