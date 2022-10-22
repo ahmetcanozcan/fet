@@ -1,3 +1,4 @@
+// Package fet implements Updaters for non field-related logical keywords
 package fet
 
 func logicalOperatioWithKeyword(keyword string, updaters ...Updater) Updater {

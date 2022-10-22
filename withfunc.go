@@ -1,8 +1,14 @@
+// Package fet implements functional way of Updater named WithFunc
+//
+// inside of the fet system, with functions are one of the core concepts.
+// withFuncs allows to building updater without any limitation.
 package fet
 
+// WithFunc functional implementation of Updater
 type WithFunc func(M)
 type withFuncConstructor func(key string, value interface{}, checkers ...Checker) Updater
 
+// Update updates filter
 func (w WithFunc) Update(filter M) {
 	w(filter)
 }

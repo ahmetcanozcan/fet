@@ -1,3 +1,4 @@
+// Package Fet provides sets of useful MongoDB keywords that can be used in and out of this package
 package fet
 
 const (

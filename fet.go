@@ -1,4 +1,4 @@
-// Package fet  allows you to build queries in dynamic, and programmatic way.
+// Package fet allows you to build queries in a dynamic, and programmatic way.
 //
 // You can build mongo queries with function calls,
 // instead of writing nested maps. And you have a unique,

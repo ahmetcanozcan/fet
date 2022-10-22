@@ -19,7 +19,7 @@ well-tested <code> Go </code> library that allows you to build queries in dynami
 
 <br />
 
-## What is FET?
+## What is FET
 
 Fet is a library that allows you to build queries in dynamic, and programmatic way. You can build mongo queries with function calls, instead of writing nested maps. And you have a unique, built-in logical control on your queries easily.
 

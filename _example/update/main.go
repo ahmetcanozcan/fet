@@ -1,3 +1,4 @@
+// Package main implements an example usage of building update queries with fet
 package main
 
 import (
@@ -10,10 +11,10 @@ import (
 )
 
 const (
-	URI = ""
+	uri = ""
 )
 
-type User struct {
+type user struct {
 	Name string `bson:"name"`
 	Age  int    `bson:"age"`
 }
@@ -21,12 +22,12 @@ type User struct {
 func main() {
 	ctx := context.Background()
 
-	client, err := mongo.Connect(ctx, options.Client().ApplyURI(URI))
+	client, err := mongo.Connect(ctx, options.Client().ApplyURI(uri))
 	checkErr(err)
 
 	collection := client.Database("test").Collection("test")
 
-	_, err = collection.InsertOne(ctx, User{Name: "test"})
+	_, err = collection.InsertOne(ctx, user{Name: "test"})
 	checkErr(err)
 
 	filter := fet.Build(
@@ -40,11 +41,11 @@ func main() {
 	_, err = collection.UpdateOne(ctx, filter, query)
 	checkErr(err)
 
-	var user User
-	err = collection.FindOne(ctx, filter).Decode(&user)
+	var u user
+	err = collection.FindOne(ctx, filter).Decode(&u)
 	checkErr(err)
 
-	fmt.Println(user)
+	fmt.Println(u)
 }
 
 func checkErr(err error) {

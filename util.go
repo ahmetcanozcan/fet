@@ -1,3 +1,5 @@
+// Package fet implements utility functionalities
+// for making map building process more elegant.
 package fet
 
 type updaterGroup []Updater

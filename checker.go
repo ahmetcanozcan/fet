@@ -1,3 +1,7 @@
+// Package fet implements a checker system to make a more dynamic query-building process
+//
+// Any struct that implements Checker interface, can be used as a checker in filter update processes.
+// And package fet has some built-in checkers.
 package fet
 
 import "time"

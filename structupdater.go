@@ -1,3 +1,4 @@
+// Package fet implements StructUpdater that allows to building filters using a struct directly
 package fet
 
 import (

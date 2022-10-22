@@ -1,3 +1,4 @@
+// Package fet implements utility methods for struct
 package fet
 
 import "reflect"

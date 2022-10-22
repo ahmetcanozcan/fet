@@ -1,3 +1,6 @@
+// Package fet implements a field system that is built on withFunction,
+//
+// field system allows using MongoDB keywords and implementing some Checker logic easily
 package fet
 
 type field struct {

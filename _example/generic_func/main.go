@@ -14,7 +14,7 @@ const (
 	uri = ""
 )
 
-type User struct {
+type user struct {
 	UserName string `bson:"userName"`
 }
 
@@ -26,18 +26,18 @@ func main() {
 
 	collection := client.Database("test").Collection("test")
 
-	_, err = collection.InsertOne(ctx, User{UserName: "test"})
+	_, err = collection.InsertOne(ctx, user{UserName: "test"})
 	checkErr(err)
 
-	user, err := getByFilter(collection, fet.Field("userName").Eq("test"))
+	u, err := getByFilter(collection, fet.Field("userName").Eq("test"))
 	checkErr(err)
-	fmt.Println(user)
+	fmt.Println(u)
 }
 
-func getByFilter(coll *mongo.Collection, filters ...fet.Updater) (user User, err error) {
+func getByFilter(coll *mongo.Collection, filters ...fet.Updater) (u user, err error) {
 	filter := fet.Build(filters...)
-	err = coll.FindOne(context.TODO(), filter).Decode(&user)
-	return user, err
+	err = coll.FindOne(context.TODO(), filter).Decode(&u)
+	return u, err
 }
 
 func checkErr(err error) {
