@@ -60,6 +60,10 @@ func (s *StructUpdater) Update(m M) {
 	}
 }
 
+func (s *StructUpdater) Build() M {
+	return Build(s)
+}
+
 // Struct constructs a StructUpdater for the given struct.
 // if given value is nil or not a struct, panic.
 func Struct(s interface{}) *StructUpdater {

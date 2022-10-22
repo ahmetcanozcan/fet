@@ -73,6 +73,30 @@ func Test_Struct_Pick(t *testing.T) {
 	}
 }
 
+func Test_Struct_Build(t *testing.T) {
+	qt := assert.New(t)
+
+	s := struct {
+		Name  string `bson:"name"`
+		Age   int
+		Phone string
+	}{
+		Name:  "Dave Bowman",
+		Age:   18,
+		Phone: "",
+	}
+
+	filter := Struct(s).
+		Pick("Name").
+		Pick("Phone", IfNotEmpty).
+		Build()
+
+	qt.Equal(s.Name, filter["name"])
+	qt.Nil(filter["Phone"])
+	qt.Nil(filter["Age"])
+
+}
+
 func Test_Struct(t *testing.T) {
 	qt := assert.New(t)
 
