@@ -5,14 +5,32 @@
 </div>
 
 <div align="center">
-well-tested <code> Go </code> library that allows you to build queries in dynamic, and programmatic way. 
+well-tested <code>Go</code> library that allows you to build queries in dynamic, and programmatic way. 
 </div>
-
 <br/>
 
 <div align="center">
+ 
+</div>
+<div align="center">
+  <strong>More control on functions</strong>
+</div>
+<div align="center">
+  A <code> JavaScript</code> and <code> TypeScript</code> library for measuring and scaling to functions.
+</div>
 
-![CI](https://github.com/ahmetcanozcan/fet/actions/workflows/ci.yaml/badge.svg)
+<br>
+<div align="center">
+
+<a> 
+<img src="https://github.com/ahmetcanozcan/fet/actions/workflows/ci.yaml/badge.svg" />
+</a>
+
+<a href="https://codecov.io/gh/ahmetcanozcan/fet" > 
+ <img src="https://codecov.io/gh/ahmetcanozcan/fet/branch/master/graph/badge.svg?token=GES6PXQMVG"/> 
+ </a>
+
+<a href="https://www.codacy.com/gh/ahmetcanozcan/fet/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ahmetcanozcan/fet&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/be1b8052d48f4bcf9688cf12b1c80ed4"/></a>
 
 </div>
 <br>
