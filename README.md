@@ -132,6 +132,36 @@ filter := bson.M{
 
 ```
 
+### Struct Picking
+
+if your code reads fields from a struct, you can use the `Struct` functionality to shortened your code.
+
+```golang
+
+type User struct {
+  Name string `bson:"name"`
+  Age int
+  Phone string
+}
+
+u := &User{
+  Name: "Dave Bowman",
+  Age: 18,
+  Phone: "",
+}
+
+f := fet.Build(
+  fet.Field("name").Is(u.Name),
+  fet.Field("Phone").Is(u.Phone, fet.IfNotEmpty)
+)
+
+f := fet.Struct(u).
+  Pick("Name").
+  Pick("Phone", fet.IfNotEmpty).
+  Build()
+
+```
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
