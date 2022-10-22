@@ -1,3 +1,7 @@
+// Package main implements an basic usage of fet
+//
+// this example shows that how you can build some filter
+// without any other fet functionalities.
 package main
 
 import (
@@ -10,25 +14,25 @@ import (
 )
 
 const (
-	URI = ""
+	uri = ""
 )
 
-type User struct {
+type user struct {
 	UserName string `bson:"userName"`
 }
 
 func main() {
 	ctx := context.Background()
 
-	client, err := mongo.Connect(ctx, options.Client().ApplyURI(URI))
+	client, err := mongo.Connect(ctx, options.Client().ApplyURI(uri))
 	checkErr(err)
 
 	collection := client.Database("test").Collection("test")
 
-	_, err = collection.InsertOne(ctx, User{UserName: "test"})
+	_, err = collection.InsertOne(ctx, user{UserName: "test"})
 	checkErr(err)
 
-	var result User
+	var result user
 
 	filter := fet.Build(
 		fet.Field("userName").Eq("test"),

@@ -1,3 +1,4 @@
+// Package main implements an example usage of generic functions with fet
 package main
 
 import (
@@ -10,7 +11,7 @@ import (
 )
 
 const (
-	URI = ""
+	uri = ""
 )
 
 type User struct {
@@ -20,7 +21,7 @@ type User struct {
 func main() {
 	ctx := context.Background()
 
-	client, err := mongo.Connect(ctx, options.Client().ApplyURI(URI))
+	client, err := mongo.Connect(ctx, options.Client().ApplyURI(uri))
 	checkErr(err)
 
 	collection := client.Database("test").Collection("test")

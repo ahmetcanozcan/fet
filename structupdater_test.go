@@ -77,13 +77,13 @@ func Test_Struct_Build(t *testing.T) {
 	t.Run("build from struct value", func(t *testing.T) {
 		qt := assert.New(t)
 
-		type User struct {
+		type user struct {
 			Name  string `bson:"name"`
 			Age   int
 			Phone string
 		}
 
-		s := &User{
+		s := &user{
 			Name:  "Dave Bowman",
 			Age:   18,
 			Phone: "",
@@ -102,13 +102,13 @@ func Test_Struct_Build(t *testing.T) {
 	t.Run("build from struct pointer", func(t *testing.T) {
 		qt := assert.New(t)
 
-		type User struct {
+		type user struct {
 			Name  string `bson:"name"`
 			Age   int
 			Phone string
 		}
 
-		s := &User{
+		s := &user{
 			Name:  "Dave Bowman",
 			Age:   18,
 			Phone: "",

@@ -1,3 +1,4 @@
+// Package main implements an example usage of struct picking feature
 package main
 
 import (
@@ -11,10 +12,10 @@ import (
 )
 
 const (
-	URI = ""
+	uri = ""
 )
 
-type User struct {
+type user struct {
 	Name      string    `bson:"name"`
 	Age       int       `bson:"age"`
 	CreatedAt time.Time `bson:"created_at"`
@@ -23,12 +24,12 @@ type User struct {
 func main() {
 	ctx := context.Background()
 
-	client, err := mongo.Connect(ctx, options.Client().ApplyURI(URI))
+	client, err := mongo.Connect(ctx, options.Client().ApplyURI(uri))
 	checkErr(err)
 
 	collection := client.Database("test").Collection("test")
 
-	u := User{
+	u := user{
 		Name:      "test",
 		CreatedAt: time.Now(),
 	}
@@ -42,14 +43,12 @@ func main() {
 		fet.Field("name").Eq("test"),
 	)
 
-	query := fet.BuildSet(
-		fet.Struct(u).Pick("Age"),
-	)
+	query := fet.Struct(u).Pick("Age").Build()
 
 	_, err = collection.UpdateOne(ctx, filter, query)
 	checkErr(err)
 
-	var user User
+	var user user
 	err = collection.FindOne(ctx, filter).Decode(&user)
 	checkErr(err)
 
