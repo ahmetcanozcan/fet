@@ -1,3 +1,4 @@
+// Package fet implements some Updater for not field-related keywords
 package fet
 
 func globalOperationWithKeyword(keyword string, updaters ...Updater) Updater {
