@@ -1,4 +1,4 @@
-// Package Fet provides sets of useful MongoDB keywords that can be used in and out of this package
+// Package fet provides sets of useful MongoDB keywords that can be used in and out of this package
 package fet
 
 const (
@@ -6,7 +6,7 @@ const (
 
 	// KeywordEq is "$eq" keyword
 	KeywordEq string = "$eq"
-	// KeywordEq is "$ne" keyword
+	// KeywordNe is "$ne" keyword
 	KeywordNe string = "$ne"
 
 	// Array Keywords
