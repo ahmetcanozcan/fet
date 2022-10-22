@@ -54,12 +54,15 @@ func (s *StructUpdater) PickAll(checkers ...Checker) *StructUpdater {
 	return s
 }
 
+// Update applies all picked struct fields to given map
 func (s *StructUpdater) Update(m M) {
 	for k, v := range s.m {
 		m[k] = v
 	}
 }
 
+// Build builds a fet.M from picked struct fields, equivalent of:
+// 		Build(structUpdater)
 func (s *StructUpdater) Build() M {
 	return Build(s)
 }
