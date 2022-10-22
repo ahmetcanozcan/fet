@@ -8,8 +8,10 @@ type Checker interface {
 	Check(key string, value interface{}) bool
 }
 
+// CheckerFunc implements Checker interface for functional usage
 type CheckerFunc func(key string, value interface{}) bool
 
+// Check pass parameters to the CheckerFunc itself
 func (cf CheckerFunc) Check(key string, value interface{}) bool {
 	return cf(key, value)
 }
