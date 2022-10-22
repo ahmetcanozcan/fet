@@ -9,9 +9,9 @@ import (
 var (
 	// ErrNilStruct panics when nil value passed as parameter
 	ErrNilStruct = errors.New("fet: nil pointer passed to Struct")
-	// ErrNilStruct panics when non struct value passed as parameter
+	// ErrNotStruct panics when non struct value passed as parameter
 	ErrNotStruct = errors.New("fet: non-struct passed to Struct")
-	// ErrNilStruct panics when try to picking invalid field from struct builder
+	// ErrInvalidField panics when try to picking invalid field from struct builder
 	ErrInvalidField = errors.New("fet: invalid field")
 )
 
