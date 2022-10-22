@@ -1,69 +1,122 @@
 package fet
 
 const (
+	// Equity Keywords
+
+	// KeywordEq is "$eq" keyword
 	KeywordEq string = "$eq"
+	// KeywordEq is "$ne" keyword
 	KeywordNe string = "$ne"
 
-	// Array
-	KeywordIn           string = "$in"
-	KeywordNin          string = "$nin"
-	KeywordAll          string = "$all"
-	KeywordElemMatch    string = "$elemMatch"
+	// Array Keywords
+
+	// KeywordIn is "$in" keyword
+	KeywordIn string = "$in"
+	// KeywordNin is "$nin" keyword
+	KeywordNin string = "$nin"
+	// KeywordAll is "$all" keyword
+	KeywordAll string = "$all"
+	// KeywordElemMatch is "$elemMatch" keyword
+	KeywordElemMatch string = "$elemMatch"
+	// KeywordAllElemMatch is "$allElemMatch" keyword
 	KeywordAllElemMatch string = "$allElemMatch"
 
-	// Logic
-	KeywordOr   string = "$or"
-	KeywordAnd  string = "$and"
-	KeywordNor  string = "$nor"
+	// Logic Keywords
+
+	// KeywordOr is "$or" keyword
+	KeywordOr string = "$or"
+	// KeywordAnd is "$and" keyword
+	KeywordAnd string = "$and"
+	// KeywordNor is "$nor" keyword
+	KeywordNor string = "$nor"
+	// KeywordNand is "$nand" keyword
 	KeywordNand string = "$nand"
 
-	// Comparison
-	KeywordGt  string = "$gt"
+	// Comparison Keywords
+
+	// KeywordGt is "$gt" keyword
+	KeywordGt string = "$gt"
+	// KeywordGte is "$gte" keyword
 	KeywordGte string = "$gte"
-	KeywordLt  string = "$lt"
+	// KeywordLt is "$lt" keyword
+	KeywordLt string = "$lt"
+	// KeywordLte is "$lte" keyword
 	KeywordLte string = "$lte"
 
-	// Element
-	KeywordExists string = "$exists"
-	KeywordSize   string = "$size"
-	KeywordType   string = "$type"
+	// Element Keywords
 
-	// Evaluation
-	KeywordMod         string = "$mod"
-	KeywordRegex       string = "$regex"
-	KeywordOptions     string = "$options"
-	KeywordText        string = "$text"
-	KeywordSearch      string = "$search"
-	KeywordComment     string = "$comment"
-	KeywordMax         string = "$max"
-	KeywordMin         string = "$min"
+	// KeywordExists is "$exists" keyword
+	KeywordExists string = "$exists"
+	// KeywordSize is "$size" keyword
+	KeywordSize string = "$size"
+	// KeywordType is "$type" keyword
+	KeywordType string = "$type"
+
+	// Evaluation Keywords
+
+	// KeywordMod is "$mod" keyword
+	KeywordMod string = "$mod"
+	// KeywordRegex is "$regex" keyword
+	KeywordRegex string = "$regex"
+	// KeywordOptions is "$options" keyword
+	KeywordOptions string = "$options"
+	// KeywordText is "$text" keyword
+	KeywordText string = "$text"
+	// KeywordSearch is "$search" keyword
+	KeywordSearch string = "$search"
+	// KeywordComment is "$comment" keyword
+	KeywordComment string = "$comment"
+	// KeywordMax is "$max" keyword
+	KeywordMax string = "$max"
+	// KeywordMin is "$min" keyword
+	KeywordMin string = "$min"
+	// KeywordMaxDistance is "$maxDistance" keyword
 	KeywordMaxDistance string = "$maxDistance"
 
-	// Bitwise
+	// Bitwise Keywords
+
+	// KeywordBitwiseAnd is "$bitwiseAnd" keyword
 	KeywordBitwiseAnd string = "$bitwiseAnd"
-	KeywordBitwiseOr  string = "$bitwiseOr"
+	// KeywordBitwiseOr is "$bitwiseOr" keyword
+	KeywordBitwiseOr string = "$bitwiseOr"
+	// KeywordBitwiseXor is "$bitwiseXor" keyword
 	KeywordBitwiseXor string = "$bitwiseXor"
+	// KeywordBitwiseNot is "$bitwiseNot" keyword
 	KeywordBitwiseNot string = "$bitwiseNot"
 
-	// Geospatial
-	KeywordGeoIntersects string = "$geoIntersects"
-	KeywordGeoWithin     string = "$geoWithin"
-	KeywordNear          string = "$near"
-	KeywordWithin        string = "$within"
+	// Geospatial Keywords
 
-	// Projection
+	// KeywordGeoIntersects is "$geoIntersects" keyword
+	KeywordGeoIntersects string = "$geoIntersects"
+	// KeywordGeoWithin is "$geoWithin" keyword
+	KeywordGeoWithin string = "$geoWithin"
+	// KeywordNear is "$near" keyword
+	KeywordNear string = "$near"
+	// KeywordWithin is "$within" keyword
+	KeywordWithin string = "$within"
+
+	// KeywordProjection is "$projection" keyword
 	KeywordProjection string = "$projection"
 
-	// Update
-	KeywordUnset       string = "$unset"
-	KeywordSet         string = "$set"
+	// Update Keywords
+
+	// KeywordUnset is "$unset" keyword
+	KeywordUnset string = "$unset"
+	// KeywordSet is "$set" keyword
+	KeywordSet string = "$set"
+	// KeywordSetOnInsert is "$setOnInsert" keyword
 	KeywordSetOnInsert string = "$setOnInsert"
 
-	// Array
+	// Array Keywords
+
+	// KeywordArrayFilters is "$arrayFilters" keyword
 	KeywordArrayFilters string = "$arrayFilters"
 
-	// Text
+	// Text Keywords
+
+	// KeywordTextScore is "$textScore" keyword
 	KeywordTextScore string = "$textScore"
 
+	// KeywordCurrentDate is "$currentDate" keyword
 	KeywordCurrentDate string = "$currentDate"
 )
